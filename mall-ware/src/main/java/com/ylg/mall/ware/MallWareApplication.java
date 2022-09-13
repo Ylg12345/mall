@@ -1,8 +1,10 @@
-package com.ylg.mall.mallware;
+package com.ylg.mall.ware;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+@EnableDiscoveryClient
 @SpringBootApplication
 public class MallWareApplication {
 

@@ -4,10 +4,12 @@ spring:
     password: root
     url: jdbc:mysql://192.168.56.10:3306/mall_ums?useUnicode=true&characterEncoding=utf8
     driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: mall-member
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: 192.168.56.10:8848
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
 
