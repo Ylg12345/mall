@@ -66,9 +66,9 @@ public class CategoryController {
     /**
      * 修改
      */
-    @RequestMapping("/update")
-    public R update(@RequestBody CategoryEntity category){
-		categoryService.updateById(category);
+    @RequestMapping("/update/sort")
+    public R update(@RequestBody CategoryEntity[] categories){
+		categoryService.updateBatchById(Arrays.asList(categories));
 
         return R.ok();
     }
@@ -79,9 +79,9 @@ public class CategoryController {
     @RequestMapping("/delete")
     public R delete(@RequestBody Long[] catIds){
 
-        System.out.println(catIds);
+        System.out.println(Arrays.asList(catIds));
 
-		categoryService.removeByIds(Arrays.asList(catIds));
+        categoryService.removeMenuIds(Arrays.asList(catIds));
 
         return R.ok();
     }
