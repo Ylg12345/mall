@@ -1,21 +1,4 @@
-/**
- * Copyright (c) 2016-2019 人人开源 All rights reserved.
- * <p>
- * https://www.renren.io
- * <p>
- * 版权所有，侵权必究！
- */
-
 package com.ylg.common.utils;
-
-
-import com.ylg.common.validator.group.AliyunGroup;
-import com.ylg.common.validator.group.QcloudGroup;
-import com.ylg.common.validator.group.QiniuGroup;
-
-import java.util.Optional;
-import java.util.stream.Stream;
-
 /**
  * 常量
  *
@@ -106,48 +89,4 @@ public class Constant {
             return value;
         }
     }
-
-    /**
-     * 云服务商
-     */
-    public enum CloudService {
-        /**
-         * 七牛云
-         */
-        QINIU(1, QiniuGroup.class),
-        /**
-         * 阿里云
-         */
-        ALIYUN(2, AliyunGroup.class),
-        /**
-         * 腾讯云
-         */
-        QCLOUD(3, QcloudGroup.class);
-
-        private int value;
-
-        private Class<?> validatorGroupClass;
-
-        CloudService(int value, Class<?> validatorGroupClass) {
-            this.value = value;
-            this.validatorGroupClass = validatorGroupClass;
-        }
-
-        public int getValue() {
-            return value;
-        }
-
-        public Class<?> getValidatorGroupClass() {
-            return this.validatorGroupClass;
-        }
-
-        public static CloudService getByValue(Integer value) {
-            Optional<CloudService> first = Stream.of(CloudService.values()).filter(cs -> value.equals(cs.value)).findFirst();
-            if (!first.isPresent()) {
-                throw new IllegalArgumentException("非法的枚举值:" + value);
-            }
-            return first.get();
-        }
-    }
-
 }
